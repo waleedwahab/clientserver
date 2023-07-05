@@ -10,7 +10,9 @@ import Chat from "./components/chat/Chat"
 import Chat2 from "./components/chat/Chat2";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Chats from './components/chatting/Chats';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Realtimechat from './components/chat/Realtimechat';
 function App() {
 
 const [conversation, setConversations] = useState([]);
@@ -37,8 +39,11 @@ const user = {id:1, username:"waleed"};
         <Routes>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<First />} />
-          <Route path = "/userDashboard" element ={ < Chat2/>}></Route>
-          <Route path = "/chatp" element ={ < Chat2/>}></Route>
+          <Route path = "/userDashboard" element ={ < Chats/>}></Route>
+            
+          <Route path = "/chatp" element ={ < Chat/>}></Route>
+          <Route path = "/chatpp" element ={ < Chat/>}></Route>
+          <Route path = "/chatting" element ={ < Chats/>}></Route>
           </Routes>
     </BrowserRouter>
     </PersistGate>

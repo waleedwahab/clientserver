@@ -11,3 +11,510 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/*log in page css*/
+.conainer
+{
+  width: 100%;
+  margin-top: 2em;
+
+}
+.cont
+{
+  display: flex;
+  margin-top: 2em;
+  width: 95%;
+  margin: 0 auto;
+  justify-content:space-between;
+
+
+}
+.cont1
+{
+  width: 70%;
+
+  display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-direction: column;
+ background-color: #FFFFFF;
+
+}
+.facebook
+{
+width:3%;
+border-radius: 17px;
+
+
+}
+.facebookp
+{
+width:10%;
+border-radius: 17px;
+
+
+}
+.gmail
+{
+  width: 3%;
+  border-radius: 10px;
+}
+.gmailp
+{
+  width: 10%;
+  border-radius: 10px;
+}
+.linkdinp
+{
+  width: 10%;
+  border-radius: 10px; 
+}
+.linkdin
+{
+  width: 3%;
+  border-radius: 10px; 
+}
+.cont2
+{
+  width: 30%;
+ 
+}
+.icons,img
+{
+  margin-left: 1em;
+ 
+}
+.icons
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputs
+{
+ display: flex;
+ justify-content: center;
+ width: 100%;
+ 
+ flex-direction: column;
+ justify-content:center;
+ align-items: center;
+ min-width:32em;
+
+
+
+}
+.passem
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  margin-top: 15em;
+  
+}
+.inputem
+{
+  width: 30%;
+  line-height: 3em;
+  border-radius: 15px;
+}
+.updem
+{
+  width: 17%;
+  background-color:#28B498;
+  margin-top: 2em;
+  line-height: 2em;
+  border-radius: 20px;
+}
+
+
+.logoimg
+{
+ width: 70%;
+}
+.updatepasswords
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  margin-top: 15em;
+}
+.passco
+{
+  width: 30%; 
+  line-height: 3.5em;
+  margin-top: 2em;
+}
+.forget
+{
+  font-size: 1.5rem;
+  margin-top: .5em;
+}
+.inputsize
+{
+  margin-top: 2.5em;
+  width:100%;
+  line-height: 5em;
+  border-radius: 10px;
+  margin-top: 4em;
+
+ 
+}
+.hello
+{
+  display:flex;
+  justify-content:center;
+  width:90% ;
+  max-width: 800px;
+  min-width:500px;
+ align-items:center;
+ border: 2px solid red;
+ flex-direction: column;
+ margin-top: 4em;
+}
+input
+{
+  background-color: #EDF5F3;
+  border: none;
+
+  
+}
+.signbtn
+{
+  margin-top: 3em;
+  width: 40%;
+  border-radius: 8px;
+  line-height: 4em;
+  background-color:#28B498;
+  border:none;
+  color: white;
+
+}
+.bar
+{
+  display: flex;
+  width: 80%;
+  justify-content:center ;
+  align-items: center;
+  
+  margin-top: 1em;
+}
+.line1
+{
+  width: 22%;
+  border-bottom: 4px solid #EEF6F3
+
+}
+.line2
+{
+  width: 22%;
+  border-bottom: 4px solid #EEF6F3
+
+
+}
+.yuotube
+{
+  background-color: #DF4D3A;
+}
+.fb
+{
+  background-color: #6B7381;
+}
+.new
+{
+   font-size: 3rem;
+
+}
+.para
+{
+  font-size: 1.5em;
+}
+.upbtn
+{
+  width: 40%;
+  border-radius: 17px;
+  font-size:1.5em;
+  line-height: 2em;
+  border-color: white;
+
+}
+.buttons
+{
+  display: flex;
+  flex-direction: row;
+  
+
+}
+.m11
+{
+  margin-right: 1rem;
+}
+.m22
+{
+  margin-left: 1rem;
+}
+.cont2
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin: 0 auto;
+  background-color: #38B29A;
+  
+  color: wheat;
+  
+}
+.size
+{
+  font-size: 3rem;
+}
+.pp
+{
+  font-size: 2rem;
+}
+
+@media (max-width:890px)
+{
+  .upbtn
+{
+  width: 40%;
+  border-radius: 17px;
+  font-size:.75em;
+  line-height: 2em;
+  border-color: white;
+
+}
+.size
+{
+  font-size: 2.5rem;
+}
+.new
+{
+   font-size: 1.25rem;
+
+}
+}
+@media (max-width:685px)
+{
+  .cont
+  {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content:space-between;
+    
+  
+  } 
+  .size
+{
+  font-size: 1.5rem;
+}
+  .cont2
+{
+  width: 100%;
+  margin: o, auto;
+ 
+}
+.pp
+{
+  font-size: 1rem;
+}
+.cont1
+{
+  width: 100%;
+}
+}
+
+/*log in page css ends*/
+/* sign up page css*/
+.signupbtn
+{
+  width: 70%;
+  line-height: 4em;
+  background-color: aqua;
+  margin-top: 3em;
+  border-radius: 15px;
+}
+.signupin
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 500px;
+  min-width: 300px;
+  align-items: center;
+
+}
+
+.signupin input
+{
+  margin-top: 3em;
+  width: 70%;
+  line-height: 4em;
+  border-radius: 17px;
+}
+
+
+nav ul
+{
+
+list-style: none;
+padding: 0 ;
+display: flex;
+justify-content: center;
+
+}
+.cont
+{
+  width: 100%;
+  max-width: 900px;
+ 
+  align-self: center;
+  margin: 0 auto;
+}
+.cont-nav
+{
+  display: flex;
+  justify-content: space-between;
+}
+nav li
+{
+ 
+  margin: 0 1em;
+}
+@media (max-width:675px)
+{
+  .cont-nav
+  {
+   flex-direction: column;   
+  }
+  header
+  {
+      text-align: center;
+  }
+  nav ul {
+flex-direction: column;
+  };
+  nav li
+  {
+      margin:.5em 0;
+  } 
+  ;
+}
+nav   a
+{
+  text-decoration: none;
+  color:#707070;
+  font-weight: 700;
+  padding: .25em;
+}
+
+nav a:hover,nav a:focus
+
+{
+color:#1792d2;
+}
+header
+{
+  text-align: center;
+  background: pink;
+  padding: 2em 0;
+}
+.subtitle
+{
+  font-weight: 400px;   
+  color:#1792d2;
+  font-size: .75rem;
+  margin: 0;
+}
+.current-page
+{
+
+  border-bottom: 1px solid #707070;
+  }
+  .inputdata
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+margin: 0 auto;
+margin-top: 10rem;
+ width: 70%;
+  border-radius: 50px;
+  background-color:beige
+  
+
+} 
+
+.pedit
+{
+  width: 20%;
+  line-height: 3em;
+  background-color: #EDF5F3;
+}
+
+.edit
+{
+  width: 20%;
+  line-height: 5em;
+}
+
+.btni
+{
+  width:10%;
+  line-height: 3em;
+  margin-left: 0;
+}
+
+.food1
+{
+  width: 25%;
+  height: 3em;  
+  margin-left: 20%;
+}
+.food2
+{
+  width: 25%;
+  height: 3em;  
+  margin-left: 4%;
+}
+.food3
+{
+  width: 30%;
+  height: 3em;  
+  margin-left: 30%;
+  margin-top: 10%;
+}
+.btnsearch
+{
+  width: 10%;
+  height: 3em;
+  margin-left: 3%;
+}
+.lidata
+{
+  margin-left: 30%;
+  
+}

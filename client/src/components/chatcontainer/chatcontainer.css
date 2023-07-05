@@ -1,0 +1,94 @@
+.MainChatContainer
+{
+    flex:2.9;
+    border:2px solid red;
+    
+}
+.userprofile
+{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.chatuserProfile
+{
+    width:50px ;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+
+
+}
+.msgcontainer
+{
+    height: 70vh;
+    overflow: hidden;
+    overflow-y: scroll;
+
+}
+.msgsendercontainer
+{
+background-color: aliceblue;
+margin-top: 20px;
+padding: 5px;
+width: 70pc;
+display:flex;
+margin-left: 30px;
+border-radius: 10px;
+
+
+}
+.msg2
+{
+    padding:3px;
+         border-Radius:10px;
+         margin-top:10px;
+         width:40%;
+         margin-top:5px,;
+         display :flex;
+         margin-Left:650px;
+         background-Color:rgb(241 243 241);
+          align-items:center
+}
+.msg
+{
+    padding:3px;
+    border-radius:10px;
+    margin-top:10px;
+    width:40%;
+    margin-top:5px;
+    display :flex;
+    margin-left:30px;
+    background-color:rgb(241 243 241);
+    align-items:center
+}
+.msgbutton
+{
+    width: 130px;
+    height: 38px;
+    margin-top: 1px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin-left: 2px;
+
+    background-color:rgb(96, 150, 150)
+    
+
+}
+.msginput
+{
+    width: 60pc;
+   padding: 10px;
+
+    height: 6vh;
+    margin-top: 10px;
+    background-color: black;
+    border: none;
+    margin-top:0px ;
+    color: aliceblue;
+    border-radius: 10px;
+
+}

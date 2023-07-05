@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import { useNavigate, useParams, route,  } from "react-router-dom";
 import axios from "axios";
-import { setUser } from  "../redux/userReducer";
+import { setUser } from  "../redux/User-slice";
 import { useDispatch } from 'react-redux';
 
 export const First = ()=>

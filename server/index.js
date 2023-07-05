@@ -8,6 +8,8 @@ const { Server } = require("socket.io");
 const server = require('http').createServer(app);
 //onst io = require('socket.io')(server);
 const cors = require("cors");
+const { Socket } = require('dgram');
+const { on } = require('events');
 app.use(cookieParser());
 app.use(express.json());
 
@@ -116,11 +118,175 @@ app.post("/api/get", (req, res) => {
     });
   });
 
+app.get("/getdata", (req, res)=>
+{
+const sql = "SELECT * FROM users";
+pool.query(sql , (err, result, fields)=>
+{
+  res.send(result);
+  //console.log(result);
+})
+})
+
+app.post("/get_message",(req, res)=>
+{
+  const recipentid = req.body.recipientId;
+  const userid = req.body.userId;
+ // console.log("userid"+userid);
+  //console.log("in get messag")
+
+  pool.query("SELECT * FROM messaging WHERE (sender = ? AND receiver = ? ) OR  (sender =   ? AND receiver = ?) ", [userid, recipentid, recipentid,userid], (err, result, feilds) => {
+    if (err) {
+      console.log(err);
+    }
+    if (result) {
+      if (result.length === 0) 
+      {
+        res.status(400).send({ message: "no chat found"});
+          console.log("no chat found");
+      } 
+      else 
+      {
+       // console.log([result]);
+        res.status(200).send(result);
+
+      }
+    }})
+} )
+
+app.post("/post/msg", (req, res)=>
+{
+console.log("in isention msgs");
+  const recipentid = req.body.recipientId;
+  const userid = req.body.userId;
+  const message = req.body.message
+  console.log(recipentid, userid, message);
+  const sqlInsert = "INSERT INTO messaging (sender, receiver , message) VALUES (?,?,?)";
 
 
 
+  pool.query(sqlInsert,     [userid, recipentid, message], (err, row, fields)=>
+  {
+   
+    if(err)
+    {
+     res.send(err);
+}
+else
+{
+  console.log("inserted");
+}
+ } )})
+  const io = new Server(server, {
+    cors: {
+      origin: "http://localhost:3000",
+     methods: ["GET", "POST"],
+     credentials:true
+    },
+  });
 
 
+  global.onlineUsers = new Map();
+  
+ 
+  io.on ("connection", (socket)=>
+  {
+    console.log("connected");
+
+    global.chatsocket = socket;
+    socket.on ("addUser", (id)=>
+    {
+      console.log("in add user")
+      onlineUsers.set (id, socket.id);
+    })
+    socket.on("send-msg", (data)=>
+    {
+      console.log("in send msg socekt")
+      const sendUserSocket = onlineUsers.get(data.to)
+      if(sendUserSocket)
+      {
+        console.log(data.msg);
+        socket.to(sendUserSocket).emit("msg-receive", data.message)
+      }
+      
+    })
+  })
+
+  var users = [];
+  //working socket start from here
+ /*
+io.on('connection', (socket) => {
+
+   
+  console.log(`User connected: ${socket.id}`);
+  socket.on("connected", function(userId){
+    // onlineUsers.set(userId, socket.id)
+     users[userId] = socket.id
+    // console.log("users"+users);
+  })
+ 
+socket.on("sendEvent" , async function (data)
+{
+
+  const sqlInsert = "INSERT INTO messaging (sender, receiver , message) VALUES (?,?,?)";
+
+
+
+  pool.query(sqlInsert,     [data.userid, data.myId, data.message], (err, row, fields)=>
+  {
+   
+    if(err)
+    {
+     res.send(err);
+    } } )
+  console.log(data.userid);
+  pool.query("SELECT * FROM users WHERE id = ? ", [data.userid], (err, receiver, feilds) => {
+    if (err) {
+      console.log(err);
+    }
+    if (receiver != null) {
+      if (receiver.length >= 0) 
+      {
+        
+        pool.query ("SELECT * FROM USERS WHERE id = ?", [data.myId], function (error, sender)
+        {
+
+          const sendername = sender[0].username;
+          const messageS = data.message;
+          const dataa = [{senderName:sendername, MessageS:messageS}]
+          
+          var {message}= "NEW message recived from " +sender[0].username + "Message"+ data.message;
+          io.to(users[receiver[0].id]).emit ("messageReceived", {dataa})
+        })
+      } 
+      else 
+      {
+      }
+  }  })
+})
+code till here
+*/
+
+
+  // Listen for incoming messages from the sender
+  /*socket.on('message', (data) => {
+    console.log('message received: ' + data.message + '  i wants to send it to recipient id  '+ data.recipientId);
+
+    // Emit the message to the recipient
+    io.to(data.recipientId).emit('message', data);
+  });*/
+
+
+  /*socket.on('join', (recipientId) => {
+    console.log('recipient joined: ' + recipientId);
+*/
+    // Join the recipient to their own room
+    //socket.join(recipientId);
+//  });
+//wokring socket})
+
+
+/*
   // backend code to create or retrieve a conversation
 app.post('/conversations',(req, res) => {
     const { user_id, Name } = req.body;
@@ -243,7 +409,7 @@ io.on('connection', (socket) => {
     console.log(`User disconnected: ${socket.id}`);
   });
 });
-
+*/
 // Start the server
 server.listen(3003, () => {
   console.log('Server started on port 3003');

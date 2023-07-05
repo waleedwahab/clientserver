@@ -1,19 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    userInfo: [],
-  },
+  initialState: null,
   reducers: {
-    userInfo(state, action) {
-      state.userInfo=action.payload;
-      //state.push(action.payload)
-      console.log(JSON.stringify(state, undefined, 2));
-    },
+    setUser: (state, action) => action.payload,
+    clearUser: () => null,
   },
 });
 
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['user','setUser'],
+};
 
-export const userActions = userSlice.actions;
-export default userSlice;
+const persistedReducer = persistReducer(persistConfig, userSlice.reducer);
+
+export const { setUser, clearUser } = userSlice.actions;
+export default persistedReducer
